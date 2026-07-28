@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Harlene Jane Tumamao — Product Support Engineer, Technical Leader, and Customer Experience Professional." />
+  <title>Harlene Jane Tumamao | Product Support Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f9ff;
+      --surface: #ffffff;
+      --surface-2: #eaf2ff;
+      --ink: #0b1f3a;
+      --muted: #5c6f8f;
+      --accent: #2563eb;
+      --accent-dark: #1e40af;
+      --pink: #ec4899;
+      --pink-soft: #fce7f3;
+      --sage: #60a5fa;
+      --line: rgba(37, 99, 235, 0.14);
+      --shadow: 0 24px 70px rgba(37, 99, 235, 0.14);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top right, rgba(37,99,235,.20), transparent 34%),
+        radial-gradient(circle at 88% 72%, rgba(236,72,153,.08), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(96,165,250,.16), transparent 38%),
+        linear-gradient(180deg, #f8fbff 0%, #f4f8ff 100%);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1160px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 16px 0;
+      backdrop-filter: blur(16px);
+      background: rgba(248, 251, 255, .82);
+      border-bottom: 1px solid rgba(37,99,235,.10);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: .02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: .94rem;
+      color: var(--muted);
+    }
+
+    .nav-links a { position: relative; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -6px; height: 2px; background: linear-gradient(90deg, var(--accent), var(--pink)); transition: .25s ease; }
+    .nav-links a:hover { color: var(--accent-dark); }
+    .nav-links a:hover::after { right: 0; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: .25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0f62fe, #1d4ed8);
+      color: white;
+      box-shadow: 0 12px 30px rgba(37,99,235,.28), 0 0 0 1px rgba(236,72,153,.08);
+    }
+
+    .btn-primary:hover { transform: translateY(-3px); background: linear-gradient(135deg, #1d4ed8, #1e40af); box-shadow: 0 18px 40px rgba(37,99,235,.32); }
+
+    .btn-secondary {
+      border-color: var(--line);
+      background: rgba(255,255,255,.62);
+    }
+
+    .btn-secondary:hover { border-color: rgba(236,72,153,.55); color: var(--accent-dark); box-shadow: 0 12px 28px rgba(236,72,153,.12); }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 64px;
+      padding: 88px 0 72px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,.7);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--accent-dark);
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--pink);
+      box-shadow: 0 0 0 5px rgba(236,72,153,.14);
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.12; }
+
+    h1 {
+      margin-top: 26px;
+      background: linear-gradient(90deg, #0f62fe 0%, #1d4ed8 70%, #ec4899 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(3.3rem, 7vw, 6.6rem);
+      letter-spacing: -.045em;
+      max-width: 820px;
+    }
+
+    .hero-lead {
+      margin: 26px 0 0;
+      max-width: 720px;
+      font-size: clamp(1.05rem, 2vw, 1.28rem);
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: 34px;
+      border-radius: 34px;
+      background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(239,246,255,.97) 70%, rgba(252,231,243,.72));
+      border: 1px solid rgba(255,255,255,.8);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "HT";
+      position: absolute;
+      right: -8px;
+      bottom: -44px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 10rem;
+      color: rgba(236,72,153,.10);
+    }
+
+    .portrait {
+      aspect-ratio: 4 / 5;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(145deg, rgba(37,99,235,.12), rgba(96,165,250,.18)),
+        var(--surface);
+      border: 1px solid var(--line);
+      text-align: center;
+      padding: 32px;
+    }
+
+    .portrait-mark {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, #0f62fe 0%, #2563eb 72%, #ec4899 100%);
+      color: white;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 3.8rem;
+      box-shadow: 0 18px 40px rgba(37,99,235,.24);
+    }
+
+    .portrait p { color: var(--muted); margin: 0; }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.7);
+      border: 1px solid var(--line);
+    }
+
+    .metric strong {
+      display: block;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 1.5rem;
+    }
+
+    .metric span { color: var(--muted); font-size: .82rem; }
+
+    section { padding: 96px 0; }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 60px;
+      margin-bottom: 44px;
+      align-items: end;
+    }
+
+    .section-label {
+      color: var(--accent-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: .8rem;
+    }
+
+    h2 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      letter-spacing: -.035em;
+    }
+
+    .section-copy { color: var(--muted); margin: 0; font-size: 1.05rem; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 28px;
+    }
+
+    .panel {
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(59,130,246,.12);
+      border-radius: var(--radius);
+      box-shadow: 0 16px 46px rgba(37,99,235,.08);
+    }
+
+    .about-story { padding: 38px; }
+    .about-story p { color: var(--muted); margin: 0 0 18px; }
+
+    .principles { padding: 32px; }
+    .principle {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .principle:last-child { border-bottom: 0; }
+    .principle-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #dbeafe, #fce7f3);
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+    .principle h3 { font-size: 1rem; margin-bottom: 5px; }
+    .principle p { margin: 0; color: var(--muted); font-size: .92rem; }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .expertise-card {
+      padding: 28px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      min-height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .expertise-card:hover { transform: translateY(-7px); box-shadow: 0 24px 60px rgba(37,99,235,.14); border-color: rgba(37,99,235,.38); }
+
+    .expertise-card::after {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      right: -42px;
+      bottom: -42px;
+      background: linear-gradient(135deg, rgba(37,99,235,.18), rgba(236,72,153,.15));
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #0f62fe, #2563eb 78%, #ec4899 100%);
+      color: white;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    .expertise-card h3 { margin-bottom: 12px; }
+    .expertise-card p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+    .timeline { position: relative; margin-top: 20px; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 19px;
+      top: 10px;
+      bottom: 10px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .role {
+      position: relative;
+      display: grid;
+      grid-template-columns: 40px 180px 1fr;
+      gap: 24px;
+      padding: 0 0 42px;
+    }
+
+    .role-dot {
+      position: relative;
+      z-index: 2;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--surface);
+      border: 1px solid rgba(236,72,153,.58);
+    }
+
+    .role-dot::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--pink));
+    }
+
+    .role-date { color: var(--accent-dark); font-weight: 700; font-size: .9rem; padding-top: 8px; }
+    .role-card { padding: 28px; }
+    .role-card h3 { font-size: 1.25rem; }
+    .role-company { color: var(--accent-dark); font-weight: 700; margin: 7px 0 14px; }
+    .role-card p, .role-card li { color: var(--muted); font-size: .94rem; }
+    .role-card ul { margin: 12px 0 0; padding-left: 20px; }
+
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .skill-panel { padding: 30px; }
+    .skill-panel h3 { margin-bottom: 20px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      padding: 10px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(252,231,243,.30));
+      color: var(--muted);
+      font-size: .86rem;
+      font-weight: 600;
+    }
+
+    .contact-box {
+      padding: 56px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, #0b2f6b 0%, #0f62fe 62%, #2563eb 82%, #ec4899 130%);
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+      box-shadow: 0 28px 80px rgba(37,99,235,.28);
+    }
+
+    .contact-box h2 { font-size: clamp(2.3rem, 5vw, 4rem); }
+    .contact-box p { color: rgba(255,255,255,.68); max-width: 650px; }
+    .contact-links { display: flex; flex-direction: column; gap: 12px; min-width: 230px; }
+    .contact-links a {
+      padding: 13px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      transition: .2s ease;
+    }
+    .contact-links a:hover { background: rgba(255,255,255,.14); border-color: rgba(252,231,243,.65); box-shadow: 0 10px 28px rgba(236,72,153,.14); }
+
+    footer {
+      padding: 28px 0 46px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      border-top: 1px solid var(--line);
+      padding-top: 26px;
+    }
+
+    .menu-button { display: none; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .menu-button { display: inline-flex; }
+      .hero, .about-grid, .section-head, .contact-box { grid-template-columns: 1fr; }
+      .hero { padding-top: 60px; gap: 38px; }
+      .hero-card { max-width: 620px; }
+      .expertise-grid { grid-template-columns: 1fr 1fr; }
+      .role { grid-template-columns: 40px 1fr; }
+      .role-date { grid-column: 2; padding-top: 0; }
+      .role-card { grid-column: 2; }
+      .skills-wrap { grid-template-columns: 1fr; }
+      .contact-links { min-width: auto; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(100% - 24px, 1160px); }
+      section { padding: 72px 0; }
+      .hero { min-height: auto; padding-bottom: 50px; }
+      h1 { font-size: 3.45rem; }
+      .metrics { grid-template-columns: 1fr; }
+      .expertise-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .contact-box { padding: 34px 24px; }
+      .footer-row { flex-direction: column; }
+      .role { gap: 14px; }
+      .role-card { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav-wrap">
+    <div class="container">
+      <nav aria-label="Primary navigation">
+        <a class="brand" href="#top">Harlene Jane Tumamao</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a class="btn btn-secondary menu-button" href="#contact">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="container">
+      <section class="hero">
+        <div>
+          <span class="eyebrow">Technical Leader · Product Support Engineer</span>
+          <h1>Calm leadership for complex technology.</h1>
+          <p class="hero-lead">
+            I help teams solve difficult technical issues, strengthen system reliability, and turn support challenges into better customer and business outcomes.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#experience">View experience</a>
+            <a class="btn btn-secondary" href="mailto:tumamao.harlenejcd@gmail.com">Email me</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Professional summary">
+          <div class="portrait">
+            <div>
+              <div class="portrait-mark">HT</div>
+              <h3>Product Support · Cloud · Integrations</h3>
+              <p>Bridging technical support with business value and customer experience.</p>
+            </div>
+          </div>
+          <div class="metrics">
+            <div class="metric"><strong>10+</strong><span>Years in IT and support</span></div>
+            <div class="metric"><strong>95%+</strong><span>Complex escalations resolved</span></div>
+            <div class="metric"><strong>L2–L3</strong><span>Technical support depth</span></div>
+          </div>
+        </aside>
+      </section>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">About</div>
+            <h2>Technical depth with a people-first approach.</h2>
+          </div>
+          <p class="section-copy">
+            My work sits at the intersection of product support, cloud platforms, system integrations, customer experience, and cross-functional collaboration.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="panel about-story">
+            <p>
+              I am a motivated and reliable IT professional with more than a decade of experience supporting B2B, B2C, and enterprise environments. I am comfortable moving between customer conversations, backend investigation, system behavior, and stakeholder coordination.
+            </p>
+            <p>
+              My focus is not only to fix the immediate issue. I look for patterns, clarify root causes, improve processes, and help teams deliver a smoother and more dependable customer experience.
+            </p>
+            <p>
+              I bring a calm, structured style to high-pressure support environments, especially when complex escalations, cloud services, APIs, integrations, and multiple technical teams are involved.
+            </p>
+          </article>
+
+          <aside class="panel principles">
+            <div class="principle">
+              <div class="principle-number">01</div>
+              <div><h3>Lead with clarity</h3><p>Translate technical complexity into decisions people can act on.</p></div>
+            </div>
+            <div class="principle">
+              <div class="principle-number">02</div>
+              <div><h3>Protect the customer experience</h3><p>Resolve issues while keeping communication consistent and grounded.</p></div>
+            </div>
+            <div class="principle">
+              <div class="principle-number">03</div>
+              <div><h3>Improve what repeats</h3><p>Document, streamline, and strengthen recurring support workflows.</p></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Core expertise</div>
+            <h2>Built for complex support environments.</h2>
+          </div>
+          <p class="section-copy">
+            A balanced mix of technical troubleshooting, cloud knowledge, stakeholder communication, and operational ownership.
+          </p>
+        </div>
+
+        <div class="expertise-grid">
+          <article class="panel expertise-card"><div class="icon">API</div><h3>API & Integration Support</h3><p>Postman, Swagger, partner integrations, backend logic, system behavior, and root-cause analysis.</p></article>
+          <article class="panel expertise-card"><div class="icon">CLD</div><h3>Cloud & Microservices</h3><p>AWS, Azure, Docker, Kubernetes, ActiveMQ, hybrid deployments, and distributed application support.</p></article>
+          <article class="panel expertise-card"><div class="icon">OPS</div><h3>Incident & Escalation Management</h3><p>L2–L3 support, SLA ownership, complex escalations, cross-team coordination, and customer updates.</p></article>
+          <article class="panel expertise-card"><div class="icon">DB</div><h3>Systems & Data</h3><p>SQL, Linux, Windows, application servers, logs, diagnostic tools, and infrastructure troubleshooting.</p></article>
+          <article class="panel expertise-card"><div class="icon">CX</div><h3>Customer Experience</h3><p>Enterprise communication, remote troubleshooting, knowledge sharing, and relationship-focused support.</p></article>
+          <article class="panel expertise-card"><div class="icon">QA</div><h3>Delivery Collaboration</h3><p>Working with DevOps, QA, Engineering, Platform Operations, and product teams during fixes and rollouts.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Experience</div>
+            <h2>A career shaped by ownership and reliability.</h2>
+          </div>
+          <p class="section-copy">
+            From customer service and infrastructure support to enterprise platforms and cloud-based freight technology.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="role">
+            <div class="role-dot"></div><div class="role-date">Apr 2023 – Present</div>
+            <article class="panel role-card">
+              <h3>Product Support Engineer</h3><div class="role-company">OneStop under Yempo Inc.</div>
+              <ul>
+                <li>Provide L2–L3 support across freight technology modules and act as a go-to resource for integrations, platform behavior, and performance.</li>
+                <li>Resolve complex API, backend, and cloud-service escalations using Zendesk, Postman, Swagger, Datadog, and ELK.</li>
+                <li>Collaborate with DevOps, QA, and Engineering on troubleshooting, partner integrations, and system rollouts.</li>
+                <li>Support .NET, SQL, React, Angular, Azure, AWS, Docker, Kubernetes, and ActiveMQ environments.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="role">
+            <div class="role-dot"></div><div class="role-date">Aug 2018 – Nov 2022</div>
+            <article class="panel role-card">
+              <h3>Technical Support Engineer</h3><div class="role-company">Genesys Cloud Services</div>
+              <ul>
+                <li>Supported the PureEngage contact-center platform and eServices solutions.</li>
+                <li>Investigated, replicated, and resolved technical issues through calls, email, remote sessions, and internal coordination.</li>
+                <li>Worked with Platform Operations and Software Engineering teams through Jira.</li>
+                <li>Maintained knowledge-base documentation and participated in 24×7 on-call support.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="role">
+            <div class="role-dot"></div><div class="role-date">Nov 2017 – Jul 2018</div>
+            <article class="panel role-card">
+              <h3>IT Intermediate Solutions Enabler</h3><div class="role-company">OpenText</div>
+              <ul>
+                <li>Handled a ten-person team supporting complex trading relationships and platform connections for banking clients.</li>
+                <li>Managed high-volume customer calls and emails while providing structured, in-depth technical troubleshooting.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="role">
+            <div class="role-dot"></div><div class="role-date">May 2016 – Oct 2017</div>
+            <article class="panel role-card">
+              <h3>IT Support Software Engineer</h3><div class="role-company">ShipServ</div>
+              <ul>
+                <li>Delivered second-line support for global users across a marine trading platform and marketplace.</li>
+                <li>Installed, configured, and supported DEV, UAT, QAT, and production environments.</li>
+                <li>Worked with Apache, Oracle, WebLogic, Tomcat, JBoss, SuSE Linux, Windows Server, Citrix, Active Directory, and networking.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="role">
+            <div class="role-dot"></div><div class="role-date">Jul 2013 – May 2016</div>
+            <article class="panel role-card">
+              <h3>Customer Service Representative</h3><div class="role-company">Sitel Philippines</div>
+              <ul>
+                <li>Supported a UK financial account as part of the Retention Team.</li>
+                <li>Resolved service concerns, clarified complaints, explained solutions, and coordinated corrections.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-label">Skills</div>
+            <h2>Technical range, thoughtfully organized.</h2>
+          </div>
+          <p class="section-copy">A toolkit developed across software support, infrastructure, cloud platforms, contact-center technology, and customer operations.</p>
+        </div>
+
+        <div class="skills-wrap">
+          <article class="panel skill-panel">
+            <h3>Platforms & Technologies</h3>
+            <div class="chips">
+              <span class="chip">AWS</span><span class="chip">Microsoft Azure</span><span class="chip">Linux</span><span class="chip">Windows Server</span><span class="chip">SQL</span><span class="chip">APIs</span><span class="chip">Microservices</span><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">ActiveMQ</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">WordPress</span>
+            </div>
+          </article>
+          <article class="panel skill-panel">
+            <h3>Support & Monitoring</h3>
+            <div class="chips">
+              <span class="chip">Zendesk</span><span class="chip">Postman</span><span class="chip">Swagger</span><span class="chip">Datadog</span><span class="chip">Grafana</span><span class="chip">ELK</span><span class="chip">Fiddler</span><span class="chip">Jira</span><span class="chip">ITIL</span><span class="chip">SLA Management</span><span class="chip">Root Cause Analysis</span><span class="chip">Knowledge Management</span>
+            </div>
+          </article>
+          <article class="panel skill-panel">
+            <h3>Contact Center & Communications</h3>
+            <div class="chips">
+              <span class="chip">Genesys</span><span class="chip">VoIP</span><span class="chip">SIP</span><span class="chip">WebRTC</span><span class="chip">PBX</span><span class="chip">IVR</span><span class="chip">CTI</span><span class="chip">Omnichannel Support</span>
+            </div>
+          </article>
+          <article class="panel skill-panel">
+            <h3>Training & Development</h3>
+            <div class="chips">
+              <span class="chip">Google IT Support</span><span class="chip">Azure Fundamentals</span><span class="chip">Windows Server 2019</span><span class="chip">Hyper-V</span><span class="chip">Project Management</span><span class="chip">Lean Six Sigma White Belt</span><span class="chip">Genesys Certifications</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <div class="section-label" style="color:#d9c8b8;">Contact</div>
+            <h2>Let’s build reliable experiences around complex systems.</h2>
+            <p>Open to conversations around product support, technical operations, customer experience, cloud platforms, and leadership-focused support roles.</p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:tumamao.harlenejcd@gmail.com">tumamao.harlenejcd@gmail.com</a>
+            <a href="tel:+639190068209">+63 919 006 8209</a>
+            <a href="https://www.linkedin.com/in/harlenetumamao/" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© <span id="year"></span> Harlene Jane Tumamao</span>
+      <span>Product Support · Cloud · Customer Experience</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
